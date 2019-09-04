@@ -1,0 +1,21 @@
+{
+  "name": "flight-finder",
+  "version": "1.0.0",
+  "description": "Simple Web Application Demonstrating the use of American Airlines' Flight-Engine API",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@ghe.aa.com:00768966/Flight-Finder.git"
+  },
+  "keywords": [
+    "Flight-Engine",
+    "Demo",
+    "American",
+    "Airlines"
+  ],
+  "author": "Jordan Culver",
+  "license": "MIT"
+}
