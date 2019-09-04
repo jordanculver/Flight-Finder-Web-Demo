@@ -2,7 +2,7 @@
   "name": "flight-finder",
   "version": "1.0.0",
   "description": "Simple Web Application Demonstrating the use of American Airlines' Flight-Engine API",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "test": "test"
   },
@@ -13,8 +13,7 @@
   "keywords": [
     "Flight-Engine",
     "Demo",
-    "American",
-    "Airlines"
+    "American Airlines"
   ],
   "author": "Jordan Culver",
   "license": "MIT"
