@@ -1,5 +1,3 @@
-var expect = require('chai').expect;
-
 describe('Navigation Header', () => {
     it('has Flight Finder title', (browser) => {
         browser
