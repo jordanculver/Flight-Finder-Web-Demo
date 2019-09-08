@@ -2,9 +2,9 @@
   "name": "flight-finder",
   "version": "1.0.0",
   "description": "Simple Web Application Demonstrating the use of American Airlines' Flight-Engine API",
-  "main": "index.html",
   "scripts": {
-    "test": "test"
+    "test": "mocha",
+    "uitest": "nightwatch ui-tests/"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,11 @@
     "American Airlines"
   ],
   "author": "Jordan Culver",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chromedriver": "^76.0.1",
+    "mocha": "^6.2.0",
+    "nightwatch": "^1.2.2"
+  }
 }
