@@ -1,4 +1,16 @@
+const { EventEmitter } = require('events');
+
 describe('Navigation Header', () => {
+    beforeEach(async (browser, done) => {
+        EventEmitter.defaultMaxListeners = 100;
+        done();
+    });
+
+    afterEach(async (browser, done) => {
+        EventEmitter.defaultMaxListeners = 10;
+        done();
+    });
+
     it('has Flight Finder title', (browser) => {
         browser
             .url(`file:///${process.env.PWD}/index.html`)
@@ -23,7 +35,7 @@ describe('Navigation Header', () => {
         browser.end();
     });
 
-    it('Home link forwards to /index.html page when clicked', async (browser) => {
+    it('Home link forwards to /index.html page when clicked', (browser) => {
         browser
             .url(`file:///${process.env.PWD}/index.html`)
             .waitForElementVisible('body')
@@ -35,7 +47,7 @@ describe('Navigation Header', () => {
             .end();
     });
 
-    it('API Usage Docs link forwards to /api_usage.html page when clicked', async (browser) => {
+    it('API Usage Docs link forwards to /api_usage.html page when clicked', (browser) => {
         browser
             .url(`file:///${process.env.PWD}/index.html`)
             .waitForElementVisible('body')
@@ -46,8 +58,8 @@ describe('Navigation Header', () => {
             .assert.urlContains('/api_usage.html')
             .end();
     });
-    
-    it('Flight Engine Repo link forwards to https://github.com/AmericanAirlines/Flight-Engine page when clicked', async (browser) => {
+
+    it('Flight Engine Repo link forwards to https://github.com/AmericanAirlines/Flight-Engine page when clicked', (browser) => {
         browser
             .url(`file:///${process.env.PWD}/index.html`)
             .waitForElementVisible('body')

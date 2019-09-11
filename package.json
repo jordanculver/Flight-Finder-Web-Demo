@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Simple Web Application Demonstrating the use of American Airlines' Flight-Engine API",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha unit-tests/",
     "uitest": "nightwatch ui-tests/"
   },
   "repository": {
@@ -21,6 +21,10 @@
     "chai": "^4.2.0",
     "chromedriver": "^76.0.1",
     "mocha": "^6.2.0",
+    "mocha-param": "^2.0.0",
     "nightwatch": "^1.2.2"
+  },
+  "dependencies": {
+    "xmlhttprequest": "^1.8.0"
   }
 }
