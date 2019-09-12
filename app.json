@@ -1,0 +1,14 @@
+{
+    "name": "American Airlines Flight Search Web Demo",
+    "description": "A Simple Web Application Demonstrating the use of the American Airlines' Flight-Engine API",
+    "repository": "https://github.com/carolinenakaye/BE-Smart-Hack/tree/master/flight-search-web",
+    "logo": "https://avatars2.githubusercontent.com/u/28813424?s=200&v=4",
+    "keywords": [
+        "node",
+        "mocha",
+        "chai",
+        "nightwatch",
+        "American Airlines",
+        "BE-Smart Hackathon"
+    ]
+}
