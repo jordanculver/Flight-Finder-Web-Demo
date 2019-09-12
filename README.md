@@ -47,10 +47,10 @@ I'm so glad you asked! Before proceeding to the next steps, be sure to download 
     $ npm test # Runs all unit tests defined in the directory unit-tests/
     $ npm run uitest # Runs all of the User-Interface or Integration Tests defined in ui-tests/
 ```
-
+---
 
 ## How do I make Network calls? <a name="network_calls"></a>
-Join Linkin today. Not that kind of network! [Checkout this HTTP overview though](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview), its like totally the bomb dot com! Below are just a few examples of how to make these requests so you can tap in to the thousands of different kinds of resources at your fingertips! Don't believe me? [Checkout this directory of available APIs online](https://www.programmableweb.com/apis/directory) or better yet, think of a subject and slap API at the end of it and see what your favorite search engine spits out.
+Join Linkedin today. Not that kind of network! [Checkout this HTTP overview though](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview), its like totally the bomb dot com! Below are just a few examples of how to make these requests so you can tap in to the thousands of different kinds of resources at your fingertips! Don't believe me? [Checkout this directory of available APIs online](https://www.programmableweb.com/apis/directory) or better yet, think of a subject and slap API at the end of it and see what your favorite search engine spits out.
 
 - The most basic example! But keep in mind, your app would most likely need to run in a browser to use this. [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) is not inherently defined in a Node.JS application. [Here's a workaround for that though](https://www.npmjs.com/package/xmlhttprequest)
     ```javascript
@@ -86,3 +86,4 @@ Join Linkin today. Not that kind of network! [Checkout this HTTP overview though
         console.log(res.body);
     });
     ```
+---
