@@ -64,3 +64,6 @@ typings/
 chromedriver.log
 
 tests_output/
+
+# Apple
+.DS_Store

@@ -2,7 +2,6 @@ const expect = require('chai').expect;
 const { EventEmitter } = require('events');
 
 describe('Clicking Search Button', () => {
-
     beforeEach(async (browser, done) => {
         EventEmitter.defaultMaxListeners = 100;
         done();

@@ -47,18 +47,6 @@ describe('Navigation Header', () => {
             .end();
     });
 
-    it('API Usage Docs link forwards to /api_usage.html page when clicked', (browser) => {
-        browser
-            .url(`file:///${process.env.PWD}/index.html`)
-            .waitForElementVisible('body')
-            .click({
-                selector: '#api-usage-link',
-                timeout: 2000
-            })
-            .assert.urlContains('/api_usage.html')
-            .end();
-    });
-
     it('Flight Engine Repo link forwards to https://github.com/AmericanAirlines/Flight-Engine page when clicked', (browser) => {
         browser
             .url(`file:///${process.env.PWD}/index.html`)
