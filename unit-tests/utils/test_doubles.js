@@ -52,7 +52,7 @@ class FakeDOMTokenList {
     }
 
     add(...classes) {
-       classes.forEach(clazz => this.classes.push(clazz));
+        classes.forEach(clazz => this.classes.push(clazz));
     }
 }
 
@@ -68,15 +68,21 @@ class XMLHttpRequest {
             XMLHttpRequest.instances = [];
             XMLHttpRequest.instances.push(this);
         }
+
         XMLHttpRequest.lastInstance = () => {
-            return XMLHttpRequest.instances[XMLHttpRequest.instances.length - 1];
+            return this;
+        }
+
+        XMLHttpRequest.clearInstances = () => {
+            XMLHttpRequest.instances = [];
         }
     }
 
-    nextInstanceShouldReturn(statusCode, response) {
+    nextInstanceShouldReturn(statusCode, response, readyState) {
         XMLHttpRequest.nextInstanceSteps = {
             statusCode: statusCode,
-            response: response
+            response: response,
+            readyState: readyState
         };
     }
 
@@ -88,10 +94,11 @@ class XMLHttpRequest {
         this.callback = callback;
     }
 
-    send() {
-        this.readyState = this.DONE;
-        this.status = XMLHttpRequest.nextInstanceSteps ? XMLHttpRequest.nextInstanceSteps.statusCode : 200;
-        this.response = XMLHttpRequest.nextInstanceSteps ? JSON.stringify(XMLHttpRequest.nextInstanceSteps.response) : JSON.stringify([
+    buildFakeResponse(response) {
+        if (response) {
+            return JSON.stringify(response);
+        }
+        return JSON.stringify([
             {
                 flightNumber: '7656',
                 origin: {
@@ -116,8 +123,36 @@ class XMLHttpRequest {
                 }
             }
         ]);
+    }
+
+    buildFakeStatus(status) {
+        if (status) {
+            return status;
+        }
+        return 200;
+    }
+
+    buildFakeReadyState(state) {
+        if (state) {
+            return state;
+        }
+        return this.DONE;
+    }
+
+    send() {
+        if (XMLHttpRequest.nextInstanceSteps) {
+            this.readyState = XMLHttpRequest.nextInstanceSteps.readyState;
+            this.status = XMLHttpRequest.nextInstanceSteps.statusCode;
+            this.response = XMLHttpRequest.nextInstanceSteps.response;
+            this.callback();
+            XMLHttpRequest.nextInstanceSteps = undefined;
+            return;
+        }
+
+        this.readyState = this.buildFakeReadyState();
+        this.status = this.buildFakeStatus();
+        this.response = this.buildFakeResponse();
         this.callback();
-        XMLHttpRequest.nextInstanceSteps = undefined;
     }
 }
 

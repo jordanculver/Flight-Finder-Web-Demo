@@ -1,6 +1,18 @@
 const expect = require('chai').expect;
+const { EventEmitter } = require('events');
 
-describe.only('Clicking Search Button', () => {
+describe('Clicking Search Button', () => {
+
+    beforeEach(async (browser, done) => {
+        EventEmitter.defaultMaxListeners = 100;
+        done();
+    });
+
+    afterEach(async (browser, done) => {
+        EventEmitter.defaultMaxListeners = 10;
+        done();
+    });
+
     it('displays flight cards', async (browser) => {
         browser
             .url(`file:///${process.env.PWD}/index.html`)
@@ -12,7 +24,7 @@ describe.only('Clicking Search Button', () => {
         });
         browser.end();
     });
-    
+
     it('displays a max of 5 flight cards', async (browser) => {
         browser
             .url(`file:///${process.env.PWD}/index.html`)
@@ -39,23 +51,22 @@ describe.only('Clicking Search Button', () => {
         });
         browser.end();
     });
-    
-    // TODO: Fix No element found exception for verifying destination used correctly
-    it.skip('displays flight cards with given destination', async (browser) => {
+
+    it('displays flight cards with given destination', async (browser) => {
         browser
             .url(`file:///${process.env.PWD}/index.html`)
             .waitForElementVisible('body');
         browser.expect.element('#search-results').to.be.present;
         browser.expect.elements('li').count.to.equal(0);
-        browser.setValue('#destination-input', 'DEN');
+        browser.setValue('#destination-input', 'JFK');
         browser.click('#flight-search-button', () => {
             browser.getText('.originAndDestinations', (text) => {
-                expect(text.value).to.contain('DEN');
+                expect(text.value).to.contain('JFK');
             });
         });
         browser.end();
     });
-    
+
     // TODO: No way to verify this at the moment
     it.skip('displays flight cards with given departure date', async (browser) => {
         browser

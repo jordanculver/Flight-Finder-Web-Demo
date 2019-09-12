@@ -22,14 +22,17 @@ class FlightsFinder {
         // xhr.withCredentials = true;
 
         xhr.addEventListener("readystatechange", function () {
+            if (this.readyState !== this.DONE) {
+                return;
+            }
+
             if (this.status >= 300 || this.response === undefined || this.response === '') {
                 responseCallback([]);
                 return;
             }
-            if (this.readyState === this.DONE) {
-                const flights = JSON.parse(this.response);
-                responseCallback(flights ? flights.slice(0, 5) : []);
-            }
+
+            const flights = JSON.parse(this.response);
+            responseCallback(flights ? flights.slice(0, 5) : []);
         });
         const originAirportParameter = originAirport ? `&origin=${originAirport}` : '';
         const destinationAirportParameter = destinationAirport ? `&destination=${destinationAirport}` : '';
@@ -80,7 +83,7 @@ class FlightsFinder {
         paragraph.appendChild(text);
         return paragraph;
     }
-    
+
     buildDurationParagraph(flight) {
         const paragraph = document.createElement('P');
         paragraph.classList.add('f6', 'f5-ns', 'lh-copy', 'measure', 'mv0');
