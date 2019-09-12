@@ -82,4 +82,21 @@ describe('Clicking Search Button', () => {
         });
         browser.end();
     });
+    
+    it('replaces previous flight cards when searching multiple times', async (browser) => {
+        browser
+            .url(`file:///${process.env.PWD}/index.html`)
+            .waitForElementVisible('body');
+        browser.expect.element('#search-results').to.be.present;
+        browser.expect.elements('li').count.to.equal(0);
+        browser.click('#flight-search-button', () => {
+            browser.expect.elements('li').count.to.not.equal(0);
+            browser.setValue('#origin-input', 'DFW');
+            browser.setValue('#destination-input', 'DEN');
+            browser.click('#flight-search-button', () => {
+                browser.expect.elements('li').count.to.equal(0);
+            });
+        });
+        browser.end();
+    });
 });

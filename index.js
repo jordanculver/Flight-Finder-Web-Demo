@@ -1,19 +1,20 @@
 class FlightsFinder {
+    constructor(flightEngineApiEndpoint) {
+        this.flightEngineApiEndpoint = flightEngineApiEndpoint || 'http://localhost:3030';
+    }
 
     searchFlights(originAirport, destinationAirport, departureDate) {
         this.fetchFlights(originAirport, destinationAirport, departureDate, (flights) => {
             if (flights.length > 0) {
                 const flightResultsList = document.getElementById('search-results');
-                if (flightResultsList.childElementCount > 0) {
-                    while (flightResultsList.firstChild) {
-                        flightResultsList.removeChild(flightResultsList.firstChild);
-                    }
-                }
+                this.removeFlightCards(flightResultsList);
                 this.buildFlightCards(flights).forEach(flightCard => {
                     flightResultsList.appendChild(flightCard);
                 });
-
+                return;
             }
+            const flightResultsList = document.getElementById('search-results');
+            this.removeFlightCards(flightResultsList);
         });
     }
 
@@ -38,7 +39,7 @@ class FlightsFinder {
         const destinationAirportParameter = destinationAirport ? `&destination=${destinationAirport}` : '';
         const departureDateParameter = departureDate ? `?date=${departureDate}` : `?date=${new Date().toISOString().slice(0, 10)}`;
 
-        xhr.open("GET", `http://localhost:3030/flights${departureDateParameter}${originAirportParameter}${destinationAirportParameter}`);
+        xhr.open("GET", `${this.flightEngineApiEndpoint}/flights${departureDateParameter}${originAirportParameter}${destinationAirportParameter}`);
 
         xhr.send(null);
     }
@@ -90,6 +91,14 @@ class FlightsFinder {
         const text = document.createTextNode(`and takes about ${flight.duration.hours} hours and ${flight.duration.minutes} minutes to get there`);
         paragraph.appendChild(text);
         return paragraph;
+    }
+
+    removeFlightCards(flightResultsList) {
+        if (flightResultsList.childElementCount > 0) {
+            while (flightResultsList.firstChild) {
+                flightResultsList.removeChild(flightResultsList.firstChild);
+            }
+        }
     }
 }
 

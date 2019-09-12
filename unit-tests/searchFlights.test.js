@@ -260,24 +260,4 @@ describe('searchFlights()', () => {
             });
         });
     });
-
-    describe.skip('with multiple invocations', () => {
-        beforeEach(() => {
-            global.window = new Window();
-            global.document = new FakeDocument();
-            global.XMLHttpRequest = XMLHttpRequest;
-            const FlightsFinder = new require('../index.js');
-            flightsFinder = new FlightsFinder();
-        });
-
-        afterEach(() => {
-        });
-
-        it('replaces display of flights when called more than once', () => {
-            flightsFinder.searchFlights();
-            flightsFinder.searchFlights();
-            flightsFinder.searchFlights();
-            expect(global.document.fakeElementsFromGetElementById.length).to.equal(1);
-        });
-    });
 });
