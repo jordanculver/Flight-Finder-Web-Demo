@@ -8,7 +8,7 @@ class FlightsFinder {
             if (flights.length > 0) {
                 const flightResultsList = document.getElementById('search-results');
                 this.removeFlightCards(flightResultsList);
-                this.buildFlightCards(flights).forEach(flightCard => {
+                this.buildFlightCards(flights, departureDate).forEach(flightCard => {
                     flightResultsList.appendChild(flightCard);
                 });
                 return;
@@ -44,20 +44,20 @@ class FlightsFinder {
         xhr.send(null);
     }
 
-    buildFlightCards(flights) {
+    buildFlightCards(flights, departureDate) {
         return flights.map(flight => {
             const flightCard = document.createElement('LI');
             flightCard.classList.add('flex', 'items-right', 'lh-copy', 'pa3', 'ph0-l', 'bb', 'b--black-10');
-            flightCard.appendChild(this.buildArticle(flight));
+            flightCard.appendChild(this.buildArticle(flight, departureDate));
             return flightCard;
         });
     }
 
-    buildArticle(flight) {
+    buildArticle(flight, departureDate) {
         const article = document.createElement('ARTICLE');
         article.classList.add('center', 'mw5', 'mw6-ns', 'hidden', 'ba', 'mv4');
         article.appendChild(this.buildFlightNumberHeader(flight.flightNumber));
-        article.appendChild(this.buildFlightContentSection(flight));
+        article.appendChild(this.buildFlightContentSection(flight, departureDate));
         return article;
     }
 
@@ -68,15 +68,23 @@ class FlightsFinder {
         return header;
     }
 
-    buildFlightContentSection(flight) {
+    buildFlightContentSection(flight, departureDate) {
         const flightContent = document.createElement('DIV');
         flightContent.classList.add('pa3', 'bt');
-        flightContent.appendChild(document.createElement('P'));
+        flightContent.appendChild(this.buildDepartureDateParagraph(departureDate));
         flightContent.appendChild(this.buildOriginAndDestinationParagraph(flight));
         flightContent.appendChild(this.buildDurationParagraph(flight));
         return flightContent;
     }
 
+    buildDepartureDateParagraph(departureDate) {
+        const paragraph = document.createElement('P');
+        paragraph.classList.add('f6', 'f5-ns', 'lh-copy', 'measure', 'mv0', 'departureDates');
+        const text = document.createTextNode(`${new Date(departureDate).toDateString()}`);
+        paragraph.appendChild(text);
+        return paragraph;
+    }
+    
     buildOriginAndDestinationParagraph(flight) {
         const paragraph = document.createElement('P');
         paragraph.classList.add('f6', 'f5-ns', 'lh-copy', 'measure', 'mv0', 'originAndDestinations');

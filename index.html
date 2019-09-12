@@ -12,9 +12,9 @@
 </head>
 
 <body class="sans-serif">
-    <header class="bg-black-90 fixed w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
+    <header class="bg-black-90 w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
         <nav class="f6 fw6 ttu tracked">
-            <a id="home-link" class="link dim white dib mr3" href="index.html" title="Home">Home</a>
+            <a id="home-link" class="link dim white dib mr3" href="index.html" title="Home">Find Flights</a>
             <a id="api-usage-link" class="link dim white dib mr3" href="api_usage.html" title="API Usage Documentation">
                 API Usage Docs
             </a>
@@ -24,20 +24,19 @@
             </a>
         </nav>
     </header>
-    <section class="pa3 pa5-ns bt b--black-10 black-70 bg-white">
-        <article class="cf ph3 ph5-ns pv5">
-            <header class="fn fl-ns w-50-ns pr4-ns">
-                <h1 class="f4 f3-ns mt4">Find Flights</h1>
-            </header>
-            <form id="find-flights-form" class="pa4 black-80">
+    <section class="flex justify-around items-start">
+        <div class="mr3 pa3"></div>
+        <div class="w-25 mr3 pa3">
+            <h3 class="fl-m">Form</h3>
+            <form id="find-flights-form" class="black-80">
                 <div class="measure">
                     <label for="origin-input" class="f6 b db mb2">
                         Origin Airport Code
                         <span class="normal black-60">(optional)</span>
                     </label>
                     <input id="origin-input" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"
-                        aria-describedby="name-desc">
-                    <small id="name-desc" class="f6 black-60 db mb2">From where would you like your flights to take
+                        aria-describedby="origin-desc">
+                    <small id="origin-desc" class="f6 black-60 db mb2">From where would you like your flights to take
                         off
                         from?
                         For Example: DFW</small>
@@ -48,8 +47,8 @@
                         <span class="normal black-60">(optional)</span>
                     </label>
                     <input id="destination-input" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"
-                        aria-describedby="name-desc">
-                    <small id="name-desc" class="f6 black-60 db mb2">
+                        aria-describedby="destination-desc">
+                    <small id="destination-desc" class="f6 black-60 db mb2">
                         To where would you like your flights to go? For Example: ORD
                     </small>
                 </div>
@@ -59,8 +58,8 @@
                         <span class="normal black-60">(required)</span>
                     </label>
                     <input id="departure-date-input" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="date"
-                        aria-describedby="name-desc" required="required" value="1980-09-12">
-                    <small id="name-desc" class="f6 black-60 db mb2">
+                        aria-describedby="departure-date-desc" required="required" value="1980-09-12">
+                    <small id="departure-date-desc" class="f6 black-60 db mb2">
                         What day should these flights take off? For Example: 09/12/1980
                     </small>
                 </div>
@@ -72,17 +71,12 @@
                     </button>
                 </div>
             </form>
-            <div class="fn fl-ns w-50-ns">
-                <ul id="search-results" class="list pl0 mt0 measure right"></ul>
-            </div>
-        </article>
+        </div>
+        <div class="w-45 pa3 mr2">
+            <ul id="search-results"></ul>
+        </div>
+        <div class="w-70 pa3"></div>
     </section>
-    <footer class="bg-black-90 white-80 pv5 pv6-l ph4">
-        <p id="footer-company-name" class="f6"><span class="dib mr4 mr5-ns">©2019 American Airlines</span>
-            <a id="aa-official-github-link" class="link white-80 hover-green"
-                href="https://github.com/AmericanAirlines">Official Github</a>
-        </p>
-    </footer>
 </body>
 
 </html>

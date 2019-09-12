@@ -67,22 +67,21 @@ describe('Clicking Search Button', () => {
         browser.end();
     });
 
-    // TODO: No way to verify this at the moment
-    it.skip('displays flight cards with given departure date', async (browser) => {
+    // TODO: Add requirement for date timezone issue
+    it('displays flight cards with given departure date', async (browser) => {
         browser
             .url(`file:///${process.env.PWD}/index.html`)
             .waitForElementVisible('body');
         browser.expect.element('#search-results').to.be.present;
         browser.expect.elements('li').count.to.equal(0);
-        browser.setValue('#departure-date-input', '2019-09-11');
         browser.click('#flight-search-button', () => {
-            browser.getText('.originAndDestinations', (text) => {
-                expect(text.value).to.contain('2019-09-11');
+            browser.getText('.departureDates', (text) => {
+                expect(text.value).to.contain('Thu Sep 11 1980');
             });
         });
         browser.end();
     });
-    
+
     it('replaces previous flight cards when searching multiple times', async (browser) => {
         browser
             .url(`file:///${process.env.PWD}/index.html`)
