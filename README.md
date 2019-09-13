@@ -173,3 +173,35 @@ But what happens when you don't need to search, query, or ask for information bu
 #### For more information regarding HTTP and some standards on its use [checkout the REST Architecture for Web Services](https://en.wikipedia.org/wiki/Representational_state_transfer)
 
 ---
+
+## How do I make buttons do things? <a name="dont_press_my_buttons"></a>
+
+There are quite a few ways of making buttons do things but the basic way is to first make a [button tag](https://www.w3schools.com/tags/tag_button.asp) in your [HTML](https://www.w3schools.com/html/default.asp) file and add an [onclick](https://www.w3schools.com/jsref/event_onclick.asp) attribute to it. 
+
+```html
+<button onclick="">Wake me up!</button>
+```
+
+You'll need to define a [Javascript](https://www.w3schools.com/js/) file and declare or import it into your HTML file in a [script tag](https://www.w3schools.com/tags/tag_script.asp). 
+
+```html
+<script src="YOUR_JAVASCRIPT_FILE.js"></script>
+```
+
+In that Javascript file, define a [function](https://www.w3schools.com/js/js_functions.asp) and write some really cool code inside!
+
+```javascript
+function wakeMeUp() {
+    alert("Before you go-go! 'Cause I'm not planning on going solo");
+}
+```
+
+Finally invoke the function in your button's onclick attribute in your HTML file and Voilà! You're cooking with gas! Careful though, fire burns.
+
+```html
+<button onclick="wakeMeUp()">Wake me up!</button>
+```
+
+Open the HTML file in your browser and click the button. It should do whatever is inside the function you wrote!
+
+---
