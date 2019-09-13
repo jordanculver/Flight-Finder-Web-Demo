@@ -18,7 +18,7 @@ A Simple Web Application Demonstrating the use of American Airlines' Flight-Engi
 
 ---
 ## How do I run this App? <a name="running_this_app"></a>
-With ease of course! Before running this app, make sure you've set everything up with the [Flight-Engine](https://github.com/AmericanAirlines/Flight-Engine) and its running on your computer. Below are a few ways you can get started:
+With ease of course! Before running this app, make sure you've set everything up with the [Flight-Engine](https://github.com/AmericanAirlines/Flight-Engine) and its running on your computer on port 3030. Below are a few ways you can get started:
 
 - Open the [index.html](index.html) in your favorite browser like Google Chrome, Mozilla Firefox, or if you're really desperate, Safari or Internet Explorer. Prepare to be amazed! Because that's all you have to do.
 
@@ -37,6 +37,16 @@ With ease of course! Before running this app, make sure you've set everything up
         $ node_modules/harp/bin/harp server --port 4000
         ```
         After running those commands you should see a message saying your server is listening at `http://localhost:4000`. Go ahead and try copy/pasting that into your favorite browser. You should now be able to see and interact with the demo!
+
+### How do I Change the endpoint used for the Flight-Engine API?
+
+Clone this repository and open the [index.html](index.html) in a file editor of your choosing. Add your custom endpoint as the argument to the FlightFinder() class object in the script tag above. Save the file and [Deploy](#running_this_app) the application with whichever method of your choosing. Refer to the example below.
+
+```html
+<script>
+    const flightsFinder = new FlightsFinder('https://YOUR_CUSTOM_URL_HERE.com');
+</script>
+```
 
 ---
 ## How do I run the Tests? <a name="tests_are_the_best"></a>
