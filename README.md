@@ -8,8 +8,14 @@ A Simple Web Application Demonstrating the use of American Airlines' Flight-Engi
 
 - [What does this App look like?](#user_interface)
 - [How do I run this App?](#running_this_app)
-- [How do I do run the Tests?](#tests_are_the_best)
+    - [How do I Change the endpoint used for the Flight-Engine API?](#changing_endpoint)
+- [How do I do run the Tests?](#running_tests)
+    - [Why are Tests so important?](#tests_are_the_best)
 - [How do I make Network calls?](#network_calls)
+    - [HTTP GET Request Examples](#http_get_examples)
+    - [HTTP POST Request Examples](#http_post_examples)
+- [How do I make buttons do things?](#dont_press_my_buttons)
+- [I need my App to go to another page, How?!](#page_transitions)
 
 ---
 
@@ -38,7 +44,7 @@ With ease of course! Before running this app, make sure you've set everything up
         ```
         After running those commands you should see a message saying your server is listening at `http://localhost:4000`. Go ahead and try copy/pasting that into your favorite browser. You should now be able to see and interact with the demo!
 
-### How do I Change the endpoint used for the Flight-Engine API?
+### How do I Change the endpoint used for the Flight-Engine API? <a name="changing_endpoint"></a>
 
 Clone this repository and open the [index.html](index.html) in a file editor of your choosing. Add your custom endpoint as the argument to the FlightFinder() class object in the script tag above. Save the file and [Deploy](#running_this_app) the application with whichever method of your choosing. Refer to the example below.
 
@@ -49,7 +55,7 @@ Clone this repository and open the [index.html](index.html) in a file editor of 
 ```
 
 ---
-## How do I run the Tests? <a name="tests_are_the_best"></a>
+## How do I run the Tests? <a name="running_tests"></a>
 I'm so glad you asked! Before proceeding to the next steps, be sure to download the [Node.JS runtime](https://nodejs.org/en/download/) for your specific Operating System and checkout this [getting started guide](https://nodejs.org/en/docs/guides/getting-started-guide/) if you aren't familiar with working with Node or the [Node Package Manager](https://docs.npmjs.com/about-npm/)
 
 ```sh
@@ -57,7 +63,7 @@ I'm so glad you asked! Before proceeding to the next steps, be sure to download 
     $ npm test # Runs all unit tests defined in the directory unit-tests/
     $ npm run uitest # Runs all of the User-Interface or Integration Tests defined in ui-tests/
 ```
-### Why are Tests so important?
+### Why are Tests so important? <a name="tests_are_the_best"></a>
 
 Another great question! If you've ever been in a design-thinking session coming up with the next big product customers can't live without, you probably noticed we came out of it with a list of things we wanted our product to solve. That list of things our product should do is called our product's requirements. What if we built this awesome product and it doesn't do anything? Does it meet our list of requirements? That's rhetorical, the answer is obviously no, it doesn't meet anyone's requirements. 
 
@@ -74,7 +80,7 @@ It's easy to see that as software grows and team members come and go, tests beco
 ## How do I make Network calls? <a name="network_calls"></a>
 Join Linkedin today. Not that kind of network! [Checkout this HTTP overview though](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview), it's like totally the bomb dot com! Below are just a few examples of how to make these requests so you can tap in to the thousands of different kinds of resources at your fingertips! Don't believe me? [Checkout this directory of available APIs online](https://www.programmableweb.com/apis/directory) or better yet, think of a subject and slap API at the end of it and see what your favorite search engine spits out.
 
-### HTTP GET Request Examples
+### HTTP GET Request Examples <a name="http_get_examples"></a>
 
 When you need to access or get some information from a service provider you can make a Network request over the HTTP protocol with the Method GET, some query parameters, and a url. Below are just a few ways you can make that happen.
 
@@ -113,7 +119,7 @@ When you need to access or get some information from a service provider you can 
     });
     ```
 
-### HTTP POST Request Examples
+### HTTP POST Request Examples <a name="http_post_examples"></a>
 
 But what happens when you don't need to search, query, or ask for information but instead need to send information to another service provider? Well you're in luck, you can make a Network request over the same HTTP protocol with a different Method known as POST, a url, and a [JSON](https://en.wikipedia.org/wiki/JSON) or [XML](https://en.wikipedia.org/wiki/XML) formatted body with the information you'd like to send. Below are just a few examples of how to go about doing just that with Javascript.
 
@@ -207,7 +213,7 @@ Open the HTML file in your browser and click the button. It should do whatever i
 ---
 
 
-## I need my App to go to another page, How?!
+## I need my App to go to another page, How?! <a name="page_transitions"></a>
 
 Seems like you need an [a tag](https://www.w3schools.com/tags/tag_a.asp) but first make sure you have at least one [HTML]() file to use.
 
