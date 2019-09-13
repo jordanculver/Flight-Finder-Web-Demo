@@ -47,6 +47,18 @@ I'm so glad you asked! Before proceeding to the next steps, be sure to download 
     $ npm test # Runs all unit tests defined in the directory unit-tests/
     $ npm run uitest # Runs all of the User-Interface or Integration Tests defined in ui-tests/
 ```
+### Why are Tests so important?
+
+Another great question! If you've ever been in a design-thinking session coming up with the next big product customers can't live without, you probably noticed we came out of it with a list of things we wanted our product to solve. That list of things our product should do is called our product's requirements. What if we built this awesome product and it doesn't do anything? Does it meet our list of requirements? That's rhetorical, the answer is obviously no, it doesn't meet anyone's requirements. 
+
+Now let me ask you another question, lets say a team of developers builds this amazing application with no [Unit Tests](), no [Integration Tests](), and no [End to End Tests]() (basically they have no tests to speak of) but it works and meets all the requirements they wanted. Now lets say that original team leaves or moves on to their next project and another team is tasked with making some changes or meeting some new requirements. How does the new team guarantee the original requirements of the product are still met? How do they know the greatest application in the world still works? Sort answer is they won't until they see something bad happen.
+
+They have to manually make sure everything is in tip-top shape. This problem isn't that troublesome when the project is small but things always change and software will inevitably get bigger, more complicated, and thus increasingly more difficult to manually verify the product works and meets the ever expanding list of requirements.
+
+Thats where Tests come in. Think of them as Executable Requirements! The backbone of quality code. Lets take a similar example with a team that builds an awesome product with tests representing everything their product should do. Do you think the next team to support and add new features needs to spend anytime at all wondering if their changes affect previous ones? Of course not, the only time needed is spent learning how to run a project's tests, writing new tests representing new technical and business requirements, and of course coding the features that accomplish those new requirements.
+
+Its easy to see that as software grows and team members come and go, tests become more and more important to the speed of delivery and overall quality of software. Readers tend to read books that are written well and customers tend to use software that is too. In conclusion, tests are the best.
+
 ---
 
 ## How do I make Network calls? <a name="network_calls"></a>
