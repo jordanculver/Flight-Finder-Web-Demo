@@ -18,7 +18,7 @@ A Simple Web Application Demonstrating the use of American Airlines' Flight-Engi
 
 ---
 ## How do I run this App? <a name="running_this_app"></a>
-With ease of course! Before running this app, make sure you've set everything up with the [Flight-Engine](https://github.com/AmericanAirlines/Flight-Engine) and its running on your computer on port 3030. Below are a few ways you can get started:
+With ease of course! Before running this app, make sure you've set everything up with the [Flight-Engine](https://github.com/AmericanAirlines/Flight-Engine) and it's running on your computer on port 3030. Below are a few ways you can get started:
 
 - Open the [index.html](index.html) in your favorite browser like Google Chrome, Mozilla Firefox, or if you're really desperate, Safari or Internet Explorer. Prepare to be amazed! Because that's all you have to do.
 
@@ -61,18 +61,18 @@ I'm so glad you asked! Before proceeding to the next steps, be sure to download 
 
 Another great question! If you've ever been in a design-thinking session coming up with the next big product customers can't live without, you probably noticed we came out of it with a list of things we wanted our product to solve. That list of things our product should do is called our product's requirements. What if we built this awesome product and it doesn't do anything? Does it meet our list of requirements? That's rhetorical, the answer is obviously no, it doesn't meet anyone's requirements. 
 
-Now let me ask you another question, lets say a team of developers builds this amazing application with no [Unit Tests](), no [Integration Tests](), and no [End to End Tests]() (basically they have no tests to speak of) but it works and meets all the requirements they wanted. Now lets say that original team leaves or moves on to their next project and another team is tasked with making some changes or meeting some new requirements. How does the new team guarantee the original requirements of the product are still met? How do they know the greatest application in the world still works? Sort answer is they won't until they see something bad happen.
+Now let me ask you another question, let's say a team of developers builds this amazing application with no [Unit Tests](), no [Integration Tests](), and no [End to End Tests]() (basically they have no tests to speak of) but it works and meets all the requirements they wanted. Now let's say that original team leaves or moves on to their next project and another team is tasked with making some changes or meeting some new requirements. How does the new team guarantee the original requirements of the product are still met? How do they know the greatest application in the world still works? Sort answer is they won't until they see something bad happen.
 
 They have to manually make sure everything is in tip-top shape. This problem isn't that troublesome when the project is small but things always change and software will inevitably get bigger, more complicated, and thus increasingly more difficult to manually verify the product works and meets the ever expanding list of requirements.
 
-Thats where Tests come in. Think of them as Executable Requirements! The backbone of quality code. Lets take a similar example with a team that builds an awesome product with tests representing everything their product should do. Do you think the next team to support and add new features needs to spend anytime at all wondering if their changes affect previous ones? Of course not, the only time needed is spent learning how to run a project's tests, writing new tests representing new technical and business requirements, and of course coding the features that accomplish those new requirements.
+Thats where Tests come in. Think of them as Executable Requirements! The backbone of quality code. Let's take a similar example with a team that builds an awesome product with tests representing everything their product should do. Do you think the next team to support and add new features needs to spend anytime at all wondering if their changes affect previous ones? Of course not, the only time needed is spent learning how to run a project's tests, writing new tests representing new technical and business requirements, and of course coding the features that accomplish those new requirements.
 
-Its easy to see that as software grows and team members come and go, tests become more and more important to the speed of delivery and overall quality of software. Readers tend to read books that are written well and customers tend to use software that is too. In conclusion, tests are the best.
+It's easy to see that as software grows and team members come and go, tests become more and more important to the speed of delivery and overall quality of software. Readers tend to read books that are written well and customers tend to use software that is too. In conclusion, tests are the best.
 
 ---
 
 ## How do I make Network calls? <a name="network_calls"></a>
-Join Linkedin today. Not that kind of network! [Checkout this HTTP overview though](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview), its like totally the bomb dot com! Below are just a few examples of how to make these requests so you can tap in to the thousands of different kinds of resources at your fingertips! Don't believe me? [Checkout this directory of available APIs online](https://www.programmableweb.com/apis/directory) or better yet, think of a subject and slap API at the end of it and see what your favorite search engine spits out.
+Join Linkedin today. Not that kind of network! [Checkout this HTTP overview though](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview), it's like totally the bomb dot com! Below are just a few examples of how to make these requests so you can tap in to the thousands of different kinds of resources at your fingertips! Don't believe me? [Checkout this directory of available APIs online](https://www.programmableweb.com/apis/directory) or better yet, think of a subject and slap API at the end of it and see what your favorite search engine spits out.
 
 ### HTTP GET Request Examples
 
@@ -203,5 +203,49 @@ Finally invoke the function in your button's onclick attribute in your HTML file
 ```
 
 Open the HTML file in your browser and click the button. It should do whatever is inside the function you wrote!
+
+---
+
+
+## I need my App to go to another page, How?!
+
+Seems like you need an [a tag](https://www.w3schools.com/tags/tag_a.asp) but first make sure you have at least one [HTML]() file to use.
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Title in Browser Tab</title>
+</head>
+<body>
+
+    <h1>Your Page Heading</h1>
+    <p>The many paragraphs you wanna write about stuff</p>
+
+</body>
+</html>
+```
+
+If you want to go to an another website altogether add an HTML [a tag](https://www.w3schools.com/tags/tag_a.asp) and an [href](https://www.w3schools.com/tags/att_a_href.asp) attribute with the website you wanna go to inside your HTML file (usually between the [body tags](https://www.w3schools.com/tags/tag_body.asp)).
+
+```html
+<a href="https://www.w3schools.com/tags/tag_a.asp">Whoa! A link about Links! How Meta</a>
+```
+
+Now open your HTML file in your browser and click the blue colored text, you should now be somewhere else! Check the address bar if you don't believe me!
+
+If you instead have 2 or more HTML files and want 1 to go to the other, add an HTML a tag again but put the path and file name for the href attribute instead of a full URL.
+
+##### First page (first_page.html)
+```html
+<a href="second_page.html">This page is boring, let's Bail!</a>
+```
+
+##### Second page (second_page.html)
+```html
+<a href="first_page.html">Wait nothing happened?! Let's try again</a>
+```
+
+It's a loop! Now you're thinking with portals!
 
 ---
