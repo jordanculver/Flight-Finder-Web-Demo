@@ -20,7 +20,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chromedriver": "^76.0.1",
-    "mocha": "^6.2.0",
+    "mocha": "^10.2.0",
     "mocha-param": "^2.0.0",
     "nightwatch": "^1.2.2"
   },
